@@ -23,6 +23,7 @@
         <module>elasticsearch</module>
         <module>RestActionPlugin</module>
         <module>lucene8</module>
+        <module>CustomAnalyzerPlugin</module>
     </modules>
 
 
