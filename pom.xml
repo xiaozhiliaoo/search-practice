@@ -22,6 +22,7 @@
         <module>solr-jd</module>
         <module>elasticsearch</module>
         <module>RestActionPlugin</module>
+        <module>lucene8</module>
     </modules>
 
 
