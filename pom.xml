@@ -24,6 +24,8 @@
         <module>RestActionPlugin</module>
         <module>lucene8</module>
         <module>CustomAnalyzerPlugin</module>
+        <module>springboot-elasticsearch</module>
+        <module>springboot-high-level</module>
     </modules>
 
 
