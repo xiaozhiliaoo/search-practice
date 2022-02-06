@@ -18,8 +18,12 @@ public class MyAnalyzer2 extends Analyzer {
 
     private Version matchVersion;
 
-    public MyAnalyzer(Version matchVersion) {
+    public MyAnalyzer2(Version matchVersion) {
         this.matchVersion = matchVersion;
+    }
+
+    public MyAnalyzer2() {
+
     }
 
     @Override
@@ -34,7 +38,7 @@ public class MyAnalyzer2 extends Analyzer {
     public static void main(String[] args) {
         final String text = "This is a demo of the TokenStream API";
         Version version = Version.LATEST;
-        MyAnalyzer analyzer = new MyAnalyzer(version);
+        MyAnalyzer2 analyzer = new MyAnalyzer2(version);
         TokenStream stream = analyzer.tokenStream("field", new StringReader(text));
 
         CharTermAttribute termAtt = stream.addAttribute(CharTermAttribute.class);
