@@ -9,16 +9,16 @@ import org.elasticsearch.index.analysis.AbstractIndexAnalyzerProvider;
 import org.elasticsearch.index.IndexSettings;
 
 public class CustomAnalyzerProvider extends AbstractIndexAnalyzerProvider<CustomAnalyzer> {
-  private final CustomAnalyzer analyzer;
+    private final CustomAnalyzer analyzer;
 
-  @Inject
-  public CustomAnalyzerProvider(IndexSettings indexSettings, Environment env, @Assisted String name, @Assisted Settings settings) {
-      super(indexSettings, name, settings);
-      analyzer = new CustomAnalyzer();
-  }
+    @Inject
+    public CustomAnalyzerProvider(IndexSettings indexSettings, Environment env, @Assisted String name, @Assisted Settings settings) {
+        super(indexSettings, name, settings);
+        analyzer = new CustomAnalyzer();
+    }
 
-  @Override
-  public CustomAnalyzer get() {
-      return this.analyzer;
-  }
+    @Override
+    public CustomAnalyzer get() {
+        return this.analyzer;
+    }
 }

@@ -9,13 +9,13 @@ import org.elasticsearch.index.analysis.AbstractTokenFilterFactory;
 import org.elasticsearch.index.analysis.TokenFilterFactory;
 
 public class CustomFilterFactory extends AbstractTokenFilterFactory implements TokenFilterFactory {
-  @Inject
-  public CustomFilterFactory(IndexSettings indexSettings, @Assisted String name, @Assisted Settings settings) {
-    super(indexSettings, name, settings);
-  }
+    @Inject
+    public CustomFilterFactory(IndexSettings indexSettings, @Assisted String name, @Assisted Settings settings) {
+        super(indexSettings, name, settings);
+    }
 
-  @Override
-  public TokenStream create(TokenStream tokenStream) {
-    return new CustomFilter(tokenStream);
-  }
+    @Override
+    public TokenStream create(TokenStream tokenStream) {
+        return new CustomFilter(tokenStream);
+    }
 }

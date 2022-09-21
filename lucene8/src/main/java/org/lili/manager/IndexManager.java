@@ -1,28 +1,23 @@
+/*
 package org.lili.manager;
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.*;
+import org.apache.lucene.document.Field.Store;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.Version;
+import org.junit.jupiter.api.Test;
+import org.lili.dao.BookDao;
+import org.lili.dao.BookDaoImpl;
+import org.lili.po.Book;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
-import org.apache.lucene.document.Field.Store;
-import org.apache.lucene.document.FloatField;
-import org.apache.lucene.document.StoredField;
-import org.apache.lucene.document.StringField;
-import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.util.Version;
-import org.junit.Test;
-import org.lili.dao.BookDao;
-import org.lili.dao.BookDaoImpl;
-import org.lili.po.Book;
 
 
 public class IndexManager {
@@ -47,7 +42,7 @@ public class IndexManager {
 			Field name = new TextField("name", book.getName(), Store.YES);
 			// 图书价格
 			// 分词、索引、存储 但是是数字类型，所以使用FloatField
-			Field price = new FloatField("price", book.getPrice(), Store.YES);
+			Field price = new StringField("price", book.getPrice().toString(), Store.YES);
 			// 图书图片地址
 			// 不分词、不索引、存储 StoredField
 			Field pic = new StoredField("pic", book.getPic());
@@ -74,7 +69,7 @@ public class IndexManager {
 		//Analyzer analyzer = new IKAnalyzer();
 
 		// 创建IndexWriter
-		IndexWriterConfig cfg = new IndexWriterConfig(Version.LUCENE_4_10_3, analyzer);
+		IndexWriterConfig cfg = new IndexWriterConfig(Version.LUCENE_8_9_0, analyzer);
 		// 指定索引库的地址  D:\LuceneSpace\index
 		File indexFile = new File("D:\\LuceneSpace\\index");
 		Directory directory = FSDirectory.open(indexFile);
@@ -87,7 +82,8 @@ public class IndexManager {
 		writer.close();
 	}
 
-	/*@Test
+	*/
+/*@Test
 	public void deleteIndex() throws Exception {
 		// 创建分词器，标准分词器
 		Analyzer analyzer = new StandardAnalyzer();
@@ -132,5 +128,7 @@ public class IndexManager {
 		writer.updateDocument(new Term("name", "zhangsan"), doc);
 
 		writer.close();
-	}*/
+	}*//*
+
 }
+*/

@@ -13,7 +13,7 @@ import org.elasticsearch.plugins.Plugin;
 
 
 public class CustomAnalyzerPlugin extends Plugin implements AnalysisPlugin {
-	@Override
+    @Override
     public Map<String, AnalysisProvider<AnalyzerProvider<? extends Analyzer>>> getAnalyzers() {
         return singletonMap("mastering_analyzer", CustomAnalyzerProvider::new);
     }

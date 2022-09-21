@@ -5,12 +5,12 @@ import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 
 public class CustomAnalyzer extends Analyzer {
-  public CustomAnalyzer() {
-  }
+    public CustomAnalyzer() {
+    }
 
-  @Override
-  protected TokenStreamComponents createComponents(String field) {
-    final Tokenizer src = new WhitespaceTokenizer();
-    return new TokenStreamComponents(src, new CustomFilter(src));
-  }
+    @Override
+    protected TokenStreamComponents createComponents(String field) {
+        final Tokenizer src = new WhitespaceTokenizer();
+        return new TokenStreamComponents(src, new CustomFilter(src));
+    }
 }
